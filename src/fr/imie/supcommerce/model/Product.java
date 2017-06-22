@@ -1,10 +1,13 @@
 package fr.imie.supcommerce.model;
 
+import fr.imie.supcommerce.entity.Category;
+
 public class Product {
 	private Long id;
 	private String name;
 	private String description;
 	private Float price;
+	private Category category;
 	
 	public Product() {
 	}
@@ -43,6 +46,20 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + "]";
+	}
+
+	/**
+	 * @return the category
+	 */
+	public Category getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	

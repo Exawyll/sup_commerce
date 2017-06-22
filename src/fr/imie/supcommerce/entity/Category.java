@@ -1,18 +1,28 @@
 package fr.imie.supcommerce.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import org.hibernate.annotations.Entity;
 
+
+@SuppressWarnings("serial")
 @Entity
-public class Category {
+@Table (name="category")
+public class Category implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	
+	public Category() {
+	}
+	
 	public Long getId() {
 		return id;
 	}

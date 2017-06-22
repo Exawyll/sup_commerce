@@ -14,7 +14,7 @@ import fr.imie.supcommerce.model.Product;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/auth/addProduct")
-public class addProductServlet extends HttpServlet {
+public class AddProductServlet extends HttpServlet {
 
 	
 	@Override
