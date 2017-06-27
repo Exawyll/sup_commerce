@@ -5,7 +5,13 @@
 	version="3.0">
 	<display-name>SupCommerce</display-name>
 
-<welcome-file-list>
-<welcome-file>LoginPage.jsp</welcome-file>
-</welcome-file-list>
+	<listener>
+	   <listener-class>
+	      fr.imie.supcommerce.listener.PersistenceAppListener
+ 	   </listener-class>
+	</listener>
+
+	<welcome-file-list>
+		<welcome-file>login</welcome-file>
+	</welcome-file-list>
 </web-app>

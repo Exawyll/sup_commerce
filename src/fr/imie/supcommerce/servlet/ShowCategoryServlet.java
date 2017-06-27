@@ -10,28 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.imie.supcommerce.dao.DaoFactory;
-import fr.imie.supcommerce.entity.Product;
+import fr.imie.supcommerce.entity.Category;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = "/showProduct")
-public class ShowProductServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/showCategory")
+public class ShowCategoryServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Long id = Long.parseLong(req.getParameter("id"));
-		Product p = DaoFactory.getProductDao().findById(id);
+		Category c = DaoFactory.getCategoryDao().findById(id);
 		
-		req.setAttribute("p", p);
+		req.setAttribute("c", c);
 		
-		if (p != null) {
+		if (c != null) {
 			RequestDispatcher rd = 
-					req.getRequestDispatcher("/views/product/showProduct.jsp");
+					req.getRequestDispatcher("/views/category/showCategory.jsp");
 			rd.forward(req, resp);
 		} else {
 			resp.getWriter().println("No product with id " + id);
 		}
-		
-		
 	}
-	
 }

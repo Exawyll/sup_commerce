@@ -3,18 +3,16 @@
 
 </div>
 <div class="col-sm-2 sidenav">
-	<div class="well">
-		<p>ADS</p>
+	<div class="csharp">
 	</div>
-	<div class="well">
-		<p>ADS</p>
+	<div class="symfo">
 	</div>
 </div>
 
 </div>
 
 </div>
-<footer class="container-fluid text-center">
+<footer class="container-fluid text-center footer">
 	<p>Copyright by Wylliam</p>
 </footer>
 

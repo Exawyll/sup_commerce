@@ -1,38 +1,17 @@
 package fr.imie.supcommerce.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import fr.imie.supcommerce.model.Product;
+import fr.imie.supcommerce.entity.Product;
 
-public class ProductDao {
+public interface ProductDao {
 
-	private static ArrayList<Product> products = new ArrayList<>();
-	
-	public static List<Product> getAllProducts() {
-		return products;
-	}
-
-	public static Long addProduct(Product p) {
-		p.setId(new Long(products.size()));
-		products.add(p);
-		
-		return p.getId();
-	}
-
-	public static Product findProduct(Long id) {
-		for (Product p : products) {
-			if (p.getId().equals(id)) {
-				return p;
-			}
-		}
-		return null;
-	}
-
-	public static void removeProduct(Long id) {
-		products.remove(findProduct(id));
-	}
-
-	
+	List<Product> findAll();
+	List<Product> findCheapProduct();
+    Product findById(Long id);
+    List<Product> findByName(String name);
+    Long insertProduct(Product product);
+    boolean updateProduct(Product product);
+    boolean deleteProduct(Product product);
 	
 }

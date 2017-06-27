@@ -9,25 +9,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.imie.supcommerce.dao.DaoFactory;
-import fr.imie.supcommerce.entity.Product;
+import fr.imie.supcommerce.entity.Category;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = "/auth/removeProduct")
-public class RemoveProductServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/auth/removeCategory")
+public class RemoveCategoryServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Long id = Long.parseLong(req.getParameter("id"));
 		
-		Product p = new Product();
-		p = DaoFactory.getProductDao().findById(id);
+		Category c = new Category();
+		c = DaoFactory.getCategoryDao().findById(id);
 		
-		if (p != null) {
-			DaoFactory.getProductDao().deleteProduct(p);
+		if (c != null) {
+			DaoFactory.getCategoryDao().deleteCategory(c);
 		}
 		
-		resp.sendRedirect("/SupCommerce/views/product/listProduct.jsp");
+		resp.sendRedirect("/SupCommerce/views/category/listCategory.jsp");
 	}
 
 	

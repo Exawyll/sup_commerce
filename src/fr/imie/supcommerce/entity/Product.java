@@ -1,12 +1,27 @@
-package fr.imie.supcommerce.model;
+package fr.imie.supcommerce.entity;
 
-import fr.imie.supcommerce.entity.Category;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
+@Entity
+@Table (name="product")
+@NamedQuery(name="product", query="SELECT p FROM Product AS p")
 public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private String description;
 	private Float price;
+	
+	@ManyToOne
+	@JoinColumn(name="category_fk")
 	private Category category;
 	
 	public Product() {
